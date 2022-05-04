@@ -59,7 +59,7 @@ app.get('/weather',(req, res)=>{
         })
     }
 
-    geocode(req.query.address, (error, {latitide, longitude, location}={})=>{
+    geocode(req.query.address, (error, {latitude, longitude, location}={})=>{
 
         if(error){
             return res.send({
@@ -67,7 +67,7 @@ app.get('/weather',(req, res)=>{
             })
         }
 
-        forecast(latitide, longitude, (error,forecastData)=>{
+        forecast(latitude, longitude, (error,forecastData)=>{
             if(error){
                 return res.send({error})
             }
@@ -113,6 +113,6 @@ app.get('*', (req,res)=>{
 })
 
 app.listen(port, ()=>{
-    console.log('server is up on port'+ port)
+    console.log('server is up on port '+ port)
 })
 
